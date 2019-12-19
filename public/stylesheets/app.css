@@ -1,0 +1,28 @@
+#price {
+    display: block !important;
+    position: relative !important;
+    margin-right: 0 !important;
+}
+
+#commentSection{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: whitesmoke;
+}
+
+#newCommentBtn{
+    margin-top: 3%;
+    margin-right: 3%;
+}
+
+.delete-form {
+    display: inline;
+}
+
+#admin-tag {
+    color: red;
+}
+
+#user-info{
+    background-color: gray !important;
+}

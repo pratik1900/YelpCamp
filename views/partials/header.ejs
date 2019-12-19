@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            YelpCamp
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a href="/" class="navbar-brand">YelpCamp</a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <% if(!currentUser) {%>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Login</a>
+                                </li>
+                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/register">Sign Up</a>
+                                </li>
+                            <% } else { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Signed in as : <%= currentUser.username %></a>
+                                </li>
+
+                                <% if(currentUser.isAdmin) { %>
+                                    <li class="nav-link" id="admin-tag">[ADMIN]</li>
+                                <% } %>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout">Logout</a>
+                                </li>  
+                            <% } %>             
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Display any flash messages if they exist -->
+            <div class="container">
+                <% if(error && error.length > 0) {%>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                <% if(success && success.length > 0) {%>
+                    <div class="alert alert-success" role="alert">
+                        <%= success %>
+                    </div>
+                <% } %>
+            </div>

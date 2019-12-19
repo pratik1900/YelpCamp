@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <!-- User profile pic and Bio -->
+    <div class="col-md-3" id=" user-info">
+        <h1><%= user.username %></h1>
+        <img class="img-fluid rounded-circle" src="<%= user.avatar %>" alt="user profile image">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, neque illo? 
+            Voluptate maiores minima rerum quidem alias omnis ea, quae repudiandae dignissimos
+             vitae praesentium distinctio consectetur culpa necessitatibus, provident et!
+        </p>
+    </div>
+    <!-- Campgrounds added by user -->
+    <div class="col-md-9">
+        <h2>Campgrounds Added by this User:</h2>
+        <div class="row">
+            <% personalAdditions.forEach(function(personalAddition){%>
+                <div class="col-md-3 col-sm-6 text-center" > 
+                    <img src="<%= personalAddition.image %>" class="img-fluid img-thumbnail">
+
+                    <div class="caption">
+                        <h4><%= personalAddition.name %></h4>
+                    </div>
+                    <p>
+                        <a href="/personalAdditions/<%= personalAddition._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<a href="/campgrounds">Back</a>
+
+<% include ../partials/footer %>
